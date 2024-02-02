@@ -1,7 +1,8 @@
-package com.nxe.managethings.repository
+package com.nxe.managethings.data.repository
 
-import com.nxe.managethings.db.NoteDatabase
-import com.nxe.managethings.model.Note
+import com.nxe.managethings.data.db.NoteDatabase
+import com.nxe.managethings.data.model.Note
+
 
 class NoteRepository(private val db: NoteDatabase) {
 

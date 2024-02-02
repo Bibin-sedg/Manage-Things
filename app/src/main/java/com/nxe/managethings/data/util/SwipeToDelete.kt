@@ -1,4 +1,4 @@
-package com.nxe.managethings.utils
+package com.nxe.managethings.data.util
 
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView

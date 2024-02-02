@@ -1,4 +1,4 @@
-package com.nxe.managethings.model
+package com.nxe.managethings.data.model
 
 import android.icu.text.CaseMap.Title
 import androidx.room.Entity

@@ -1,4 +1,4 @@
-package com.nxe.managethings.adapters
+package com.nxe.managethings.presentation.adapter
 
 
 import android.view.LayoutInflater
@@ -12,10 +12,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.card.MaterialCardView
 import com.google.android.material.textview.MaterialTextView
 import com.nxe.managethings.R
+import com.nxe.managethings.data.model.Note
+import com.nxe.managethings.data.util.hideKeyboard
 import com.nxe.managethings.databinding.NoteItemLayoutBinding
-import com.nxe.managethings.fragments.NoteFragmentDirections
-import com.nxe.managethings.model.Note
-import com.nxe.managethings.utils.hideKeyboard
+import com.nxe.managethings.presentation.fragments.NoteFragmentDirections
 import io.noties.markwon.AbstractMarkwonPlugin
 import io.noties.markwon.Markwon
 import io.noties.markwon.MarkwonVisitor

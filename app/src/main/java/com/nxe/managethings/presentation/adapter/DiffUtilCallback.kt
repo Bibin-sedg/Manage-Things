@@ -1,7 +1,7 @@
-package com.nxe.managethings.adapters
+package com.nxe.managethings.presentation.adapter
 
 import androidx.recyclerview.widget.DiffUtil
-import com.nxe.managethings.model.Note
+import com.nxe.managethings.data.model.Note
 
 class DiffUtilCallback:DiffUtil.ItemCallback<Note>() {
     override fun areItemsTheSame(oldItem: Note, newItem: Note): Boolean {

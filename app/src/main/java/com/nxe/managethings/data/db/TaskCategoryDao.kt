@@ -6,7 +6,6 @@ import com.nxe.managethings.data.model.CategoryInfo
 import com.nxe.managethings.data.model.NoOfTaskForEachCategory
 import com.nxe.managethings.data.model.TaskCategoryInfo
 import com.nxe.managethings.data.model.TaskInfo
-
 import java.util.*
 
 @Dao

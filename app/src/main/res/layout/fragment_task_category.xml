@@ -6,7 +6,8 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".TaskCategoryFragment">
+        android:id="@+id/rlTC"
+        tools:context=".presentation.fragments.TaskCategoryFragment">
 
         <TextView
             android:id="@+id/text"

@@ -10,7 +10,7 @@
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".fragments.NoteFragment">
+        tools:context=".presentation.fragments.NoteFragment">
 
         <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/app_bar_layout"
@@ -27,47 +27,34 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
-                    <com.google.android.material.textview.MaterialTextView
-                        android:id="@+id/app_title"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="15dp"
-                        android:layout_marginStart="2dp"
-                        android:text="My Notes"
-                        android:textSize="30sp"
-                        android:textStyle="bold"
-                        app:fontFamily="@font/abeezee"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/app_title"
                         android:layout_marginTop="15dp"
-                        android:layout_marginBottom="15dp"
-                        android:layout_marginEnd="15dp">
+                        android:layout_marginEnd="15dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
 
                         <EditText
+                            android:id="@+id/search"
                             android:layout_width="0dp"
                             android:layout_height="50dp"
-                            android:id="@+id/search"
+                            android:layout_weight="3"
                             android:background="@drawable/rounded_search"
                             android:drawableStart="@drawable/ic_round_search_24"
                             android:drawablePadding="5dp"
-                            android:imeOptions="actionSearch"
                             android:hint="@string/search_here"
-                            android:paddingStart="18dp"
-                            android:paddingEnd="18dp"
-                            android:paddingTop="4dp"
-                            android:paddingBottom="5dp"
-                            android:textSize="16sp"
+                            android:imeOptions="actionSearch"
                             android:importantForAutofill="no"
                             android:inputType="textFilter"
-                            android:layout_weight="3" />
+                            android:paddingStart="18dp"
+                            android:paddingTop="4dp"
+                            android:paddingEnd="18dp"
+                            android:paddingBottom="5dp"
+                            android:textSize="16sp" />
 
 
                     </LinearLayout>
@@ -119,7 +106,7 @@
             android:orientation="horizontal"
             android:clipToPadding="false"
             android:background="@drawable/fab_btn_corner"
-            android:backgroundTint="@color/black"
+            android:backgroundTint="#631FC1"
             android:layout_margin="16dp">
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -128,7 +115,7 @@
                 android:layout_gravity="center_vertical"
                 android:id="@+id/inner_fab"
                 android:src="@drawable/ic_round_add_24"
-                android:backgroundTint="@color/black"
+                android:backgroundTint="#631FC1"
                 android:elevation="0dp"
                 android:tint="@color/white"
                 app:fabSize="normal"

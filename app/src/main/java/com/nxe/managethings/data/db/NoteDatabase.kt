@@ -1,10 +1,11 @@
-package com.nxe.managethings.db
+package com.nxe.managethings.data.db
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.nxe.managethings.model.Note
+import com.nxe.managethings.data.model.Note
+
 
 @Database(
     entities = [Note::class],

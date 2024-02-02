@@ -1,4 +1,4 @@
-package com.nxe.managethings.utils
+package com.nxe.managethings.data.util
 
 import android.content.Context.INPUT_METHOD_SERVICE
 import android.view.View

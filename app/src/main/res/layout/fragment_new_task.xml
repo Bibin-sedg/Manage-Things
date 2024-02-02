@@ -6,7 +6,7 @@
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".NewTaskFragment">
+        tools:context=".presentation.fragments.NewTaskFragment">
 
         <ScrollView
             android:layout_width="match_parent"
@@ -146,7 +146,9 @@
             android:layout_marginEnd="@dimen/fab_margin"
             android:layout_marginBottom="16dp"
             android:text="@string/new_task"
-            android:backgroundTint="@color/light_blue"
+            android:textColor="@color/white"
+            android:backgroundTint="#631FC1"
+            app:iconTint="@color/white"
             app:icon="@drawable/ic_baseline_keyboard_arrow_up_24"
             app:iconGravity="end"
             app:iconPadding="3dp" />

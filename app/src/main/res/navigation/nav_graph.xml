@@ -3,17 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/homeFragment">
+    app:startDestination="@id/home_fragment">
 
     <fragment
         android:id="@+id/settings_fragment"
-        android:name="com.nxe.managethings.SettingsFragment"
-        android:label="fragment_settings"
+        android:name="com.nxe.managethings.presentation.fragments.SettingsFragment"
+        android:label=""
         tools:layout="@layout/fragment_settings" />
     <fragment
         android:id="@+id/completed_tasks_fragment"
-        android:name="com.nxe.managethings.CompletedTasksFragment"
-        android:label="fragment_completed_tasks"
+        android:name="com.nxe.managethings.presentation.fragments.CompletedTasksFragment"
+        android:label=""
         tools:layout="@layout/fragment_completed_tasks" >
         <action
             android:id="@+id/action_completed_tasks_fragment_to_new_task_fragment"
@@ -22,8 +22,8 @@
     </fragment>
     <fragment
         android:id="@+id/task_category_fragment"
-        android:name="com.nxe.managethings.TaskCategoryFragment"
-        android:label="fragment_task_category"
+        android:name="com.nxe.managethings.presentation.fragments.TaskCategoryFragment"
+        android:label=""
         tools:layout="@layout/fragment_task_category" >
         <argument
             android:name="categoryString"
@@ -33,24 +33,21 @@
             app:destination="@id/new_task_fragment"
             app:enterAnim="@anim/slide_up" />
     </fragment>
-
     <fragment
         android:id="@+id/new_task_fragment"
-        android:name="com.nxe.managethings.NewTaskFragment"
-        android:label="fragment_new_task"
+        android:name="com.nxe.managethings.presentation.fragments.NewTaskFragment"
+        android:label=""
         tools:layout="@layout/fragment_new_task" >
         <argument
             android:name="newTaskArg"
             app:argType="com.nxe.managethings.data.model.TaskCategoryInfo"
             app:nullable="true" />
     </fragment>
-
     <fragment
-        android:id="@+id/homeFragment"
-        android:name="com.nxe.managethings.HomeFragment"
-        android:label="fragment_home"
+        android:id="@+id/home_fragment"
+        android:name="com.nxe.managethings.presentation.fragments.HomeFragment"
+        android:label=""
         tools:layout="@layout/fragment_home" >
-
         <action
             android:id="@+id/action_homeFragment_to_taskCategoryFragment"
             app:destination="@id/task_category_fragment" />
@@ -58,35 +55,28 @@
             android:id="@+id/action_homeFragment_to_newTaskFragment"
             app:destination="@id/new_task_fragment"
             app:enterAnim="@anim/slide_up" />
-
     </fragment>
-
     <fragment
         android:id="@+id/noteFragment"
-        android:name="com.nxe.managethings.fragments.NoteFragment"
+        android:name="com.nxe.managethings.presentation.fragments.NoteFragment"
         android:label="fragment_note"
         tools:layout="@layout/fragment_note" >
-
         <action
             android:id="@+id/action_noteFragment_to_saveOrUpdateFragment"
             app:destination="@id/saveOrUpdateFragment" />
     </fragment>
-
     <fragment
         android:id="@+id/saveOrUpdateFragment"
-        android:name="com.nxe.managethings.fragments.SaveOrUpdateFragment"
-        android:label="fragment_save_or_update"
-        tools:layout="@layout/fragment_save_or_update" >
-
+        android:name="com.nxe.managethings.presentation.fragments.SaveOrUpdateFragment"
+        android:label="SaveOrUpdateFragment"
+        tools:layout="@layout/fragment_save_or_update">
         <action
             android:id="@+id/action_saveOrUpdateFragment_to_noteFragment"
             app:destination="@id/noteFragment" />
-
         <argument
             android:name="Note"
             android:defaultValue="@null"
-            app:argType="com.nxe.managethings.model.Note"
+            app:argType="com.nxe.managethings.data.model.Note"
             app:nullable="true"/>
-
     </fragment>
 </navigation>

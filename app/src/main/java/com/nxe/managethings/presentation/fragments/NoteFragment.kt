@@ -1,4 +1,4 @@
-package com.nxe.managethings.fragments
+package com.nxe.managethings.presentation.fragments
 
 import android.content.res.Configuration
 import android.graphics.Color
@@ -6,7 +6,9 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.view.WindowManager
 import android.view.inputmethod.EditorInfo
 import androidx.core.content.ContextCompat
@@ -20,12 +22,12 @@ import com.google.android.material.snackbar.BaseTransientBottomBar
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.transition.MaterialElevationScale
 import com.nxe.managethings.R
-import com.nxe.managethings.activities.MainActivity
-import com.nxe.managethings.adapters.RvNoteAdapter
+import com.nxe.managethings.data.util.SwipeToDelete
+import com.nxe.managethings.data.util.hideKeyboard
+import com.nxe.managethings.data.viewModel.NoteActivityViewModel
 import com.nxe.managethings.databinding.FragmentNoteBinding
-import com.nxe.managethings.utils.SwipeToDelete
-import com.nxe.managethings.utils.hideKeyboard
-import com.nxe.managethings.viewModel.NoteActivityViewModel
+import com.nxe.managethings.presentation.MainActivity
+import com.nxe.managethings.presentation.adapter.RvNoteAdapter
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
@@ -44,10 +46,10 @@ class NoteFragment : Fragment(R.layout.fragment_note) {
     {
         super.onCreate(savedInstanceState)
         exitTransition= MaterialElevationScale(false).apply {
-            duration = 350
+            duration = 100
         }
         enterTransition= MaterialElevationScale(true).apply {
-            duration=2000
+            duration=300
         }
     }
 
@@ -63,7 +65,7 @@ class NoteFragment : Fragment(R.layout.fragment_note) {
             //activity.window.statusBarColor= Color.TRANSPARENT
             activity.window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
             activity.window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
-            activity.window.statusBarColor=Color.parseColor("#F0353737")
+            activity.window.statusBarColor= Color.parseColor("#F0353737")
         }
         noteBinding.addNoteFab.setOnClickListener{
             noteBinding.appBarLayout.visibility= View.INVISIBLE
@@ -77,7 +79,7 @@ class NoteFragment : Fragment(R.layout.fragment_note) {
 
         recyclerViewDisplay()
         swipeToDelete(noteBinding.rvNote)
-        noteBinding.search.addTextChangedListener(object : TextWatcher{
+        noteBinding.search.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
                 noteBinding.noData.isVisible = false
             }
@@ -107,7 +109,7 @@ class NoteFragment : Fragment(R.layout.fragment_note) {
         })
 
         noteBinding.search.setOnEditorActionListener{v,actionId,_->
-            if (actionId==EditorInfo.IME_ACTION_SEARCH)
+            if (actionId== EditorInfo.IME_ACTION_SEARCH)
             {
                 v.clearFocus()
                 requireView().hideKeyboard()
@@ -150,7 +152,7 @@ class NoteFragment : Fragment(R.layout.fragment_note) {
                     observerDataChanges()
                 }
                 val snackbar= Snackbar.make(
-                    requireView(),"NoteDeleted",Snackbar.LENGTH_LONG
+                    requireView(),"NoteDeleted", Snackbar.LENGTH_LONG
                 ).addCallback(object : BaseTransientBottomBar.BaseCallback<Snackbar>(){
                     override fun onDismissed(transientBottomBar: Snackbar?, event: Int) {
                         super.onDismissed(transientBottomBar, event)
@@ -166,10 +168,10 @@ class NoteFragment : Fragment(R.layout.fragment_note) {
                         super.onShown(transientBottomBar)
                     }
                 }).apply {
-                    animationMode=Snackbar.ANIMATION_MODE_FADE
+                    animationMode= Snackbar.ANIMATION_MODE_FADE
                     setAnchorView(R.id.add_note_fab)
                 }
-                snackbar.setActionTextColor(ContextCompat.getColor(requireContext(), R.color.yellowOrange))
+                snackbar.setActionTextColor(ContextCompat.getColor(requireContext(),R.color.yellowOrange))
                 snackbar.show()
 
             }
@@ -198,11 +200,11 @@ class NoteFragment : Fragment(R.layout.fragment_note) {
     private fun setUpRecyclerView(spanCount: Int) {
 
         noteBinding.rvNote.apply {
-            layoutManager=StaggeredGridLayoutManager(spanCount,StaggeredGridLayoutManager.VERTICAL)
+            layoutManager= StaggeredGridLayoutManager(spanCount, StaggeredGridLayoutManager.VERTICAL)
             setHasFixedSize(true)
             rvAdapter= RvNoteAdapter()
             adapter=rvAdapter
-            postponeEnterTransition(300L, TimeUnit.MILLISECONDS)
+            postponeEnterTransition(200, TimeUnit.MILLISECONDS)
             viewTreeObserver.addOnPreDrawListener {
                 startPostponedEnterTransition()
                 true

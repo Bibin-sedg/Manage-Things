@@ -32,7 +32,7 @@
                     android:gravity="center_horizontal"
                     android:text="@string/add_category"
                     android:textAlignment="center"
-                    android:textColor="#0FB5F3"
+                    android:textColor="#631FC1"
                     android:textSize="22sp"
                     android:textStyle="bold" />
 

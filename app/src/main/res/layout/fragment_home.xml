@@ -6,7 +6,7 @@
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".HomeFragment">
+        tools:context=".presentation.fragments.HomeFragment">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -79,7 +79,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|end"
             android:layout_marginEnd="@dimen/fab_margin"
-            android:backgroundTint="@color/light_blue"
+            android:backgroundTint="#631FC1"
             android:layout_marginBottom="16dp"
             app:srcCompat="@drawable/ic_baseline_add_24" />
 

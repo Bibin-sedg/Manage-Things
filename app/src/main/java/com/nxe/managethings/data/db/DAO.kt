@@ -1,4 +1,4 @@
-package com.nxe.managethings.db
+package com.nxe.managethings.data.db
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
@@ -7,8 +7,7 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Update
-import com.nxe.managethings.model.Note
-
+import com.nxe.managethings.data.model.Note
 
 
 @Dao

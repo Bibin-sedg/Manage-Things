@@ -40,6 +40,8 @@ android {
     buildFeatures{
         dataBinding = true
     }
+    namespace = "com.nxe.managethings"
+    testNamespace = "com.nxe.managethings"
 }
 
 dependencies {
@@ -63,6 +65,8 @@ dependencies {
     implementation("io.noties.markwon:ext-strikethrough: $markwon_version ")
     implementation("io.noties.markwon:ext-tasklist: $markwon_version ")
 
+    implementation("com.github.QuadFlask:colorpicker:0.0.15")
+
 
     val room_version = "2.6.1"
     implementation("androidx.room:room-runtime:$room_version")
@@ -74,6 +78,8 @@ dependencies {
     val nav_version = "2.7.6"
     implementation("androidx.navigation:navigation-fragment-ktx:$nav_version")
     implementation("androidx.navigation:navigation-ui-ktx:$nav_version")
+
+
 
     val lifecycle_version = "2.6.2"
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version")

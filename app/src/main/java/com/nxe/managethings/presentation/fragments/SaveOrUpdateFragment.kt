@@ -1,4 +1,4 @@
-package com.nxe.managethings.fragments
+package com.nxe.managethings.presentation.fragments
 
 import android.graphics.Color
 import android.os.Bundle
@@ -17,12 +17,12 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.transition.MaterialContainerTransform
 import com.nxe.managethings.R
-import com.nxe.managethings.activities.MainActivity
+import com.nxe.managethings.data.model.Note
+import com.nxe.managethings.data.util.hideKeyboard
+import com.nxe.managethings.data.viewModel.NoteActivityViewModel
 import com.nxe.managethings.databinding.BottomSheetLayoutBinding
 import com.nxe.managethings.databinding.FragmentSaveOrUpdateBinding
-import com.nxe.managethings.model.Note
-import com.nxe.managethings.utils.hideKeyboard
-import com.nxe.managethings.viewModel.NoteActivityViewModel
+import com.nxe.managethings.presentation.MainActivity
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
@@ -46,7 +46,7 @@ class SaveOrUpdateFragment : Fragment(R.layout.fragment_save_or_update) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val animation = MaterialContainerTransform().apply {
-            drawingViewId= R.id.mainContainerView
+            drawingViewId= R.id.nav_host_fragment_content_main
             scrimColor = Color.TRANSPARENT
             duration= 300L
         }
@@ -66,12 +66,6 @@ class SaveOrUpdateFragment : Fragment(R.layout.fragment_save_or_update) {
             "recyclerView_${args.note?.id}"
         )
 
-        contentBinding.backBtn.setOnClickListener{
-
-            requireView().hideKeyboard()
-            navController.popBackStack()
-
-        }
         contentBinding.lastEdited.text=getString(R.string.edited_on,SimpleDateFormat.getDateInstance().format(Date()))
 
         contentBinding.saveNote.setOnClickListener{

@@ -2,11 +2,11 @@ package com.nxe.managethings.data.repository
 
 import androidx.lifecycle.LiveData
 import com.nxe.managethings.data.db.TaskCategoryDao
+import com.nxe.managethings.domain.TaskCategoryRepository
 import com.nxe.managethings.data.model.CategoryInfo
 import com.nxe.managethings.data.model.NoOfTaskForEachCategory
 import com.nxe.managethings.data.model.TaskCategoryInfo
 import com.nxe.managethings.data.model.TaskInfo
-import com.nxe.managethings.domain.TaskCategoryRepository
 import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.withContext

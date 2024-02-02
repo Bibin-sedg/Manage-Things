@@ -1,5 +1,4 @@
-package com.nxe.managethings
-
+package com.nxe.managethings.presentation.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -12,12 +11,13 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.snackbar.Snackbar
-import com.nxe.managethings.activities.MainActivity
-import com.nxe.managethings.activities.MainActivityViewModel
-import com.nxe.managethings.adapter.CategoryAdapter
-import com.nxe.managethings.adapter.TasksAdapter
+import com.nxe.managethings.presentation.MainActivity
+import com.nxe.managethings.presentation.MainActivityViewModel
+import com.nxe.managethings.R
+import com.nxe.managethings.presentation.adapter.CategoryAdapter
+import com.nxe.managethings.presentation.adapter.TasksAdapter
 import com.nxe.managethings.data.model.TaskCategoryInfo
+import com.google.android.material.snackbar.Snackbar
 import com.nxe.managethings.databinding.FragmentHomeBinding
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.*
@@ -30,7 +30,7 @@ class HomeFragment : ParentFragment() {
     private lateinit var viewModel: MainActivityViewModel
     private lateinit var binding : FragmentHomeBinding
     @Inject
-    @Named("base_fragment")
+    @Named("home_fragment")
     lateinit var adapter : TasksAdapter
     @Inject lateinit var adapter2 : CategoryAdapter
 
