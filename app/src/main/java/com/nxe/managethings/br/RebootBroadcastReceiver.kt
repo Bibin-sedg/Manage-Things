@@ -24,7 +24,7 @@ class RebootBroadcastReceiver : BroadcastReceiver(){
         val time = Date()
         CoroutineScope(Main).launch {
             val list = repository.getActiveAlarms(time)
-            for(taskInfo in list) setAlarm(taskInfo, context)
+            for(taskInfo in list) setAlarm(taskInfo, context) //d
         }
     }
 
